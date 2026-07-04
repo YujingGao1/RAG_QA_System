@@ -57,20 +57,37 @@ export DASHSCOPE_API_KEY="your-dashscope-api-key"
 $env:DASHSCOPE_API_KEY="your-dashscope-api-key"
 ```
 
-### 3. 运行实验
+首次运行会自动通过 ModelScope 下载 bge-reranker-base 模型（约 1.1GB），请确保网络畅通。
+
+### 3. 交互问答
+
+```bash
+python main.py
+```
+
+放入你的 TXT/PDF 文档到 `data/` 目录，启动后输入问题即可获得回答。
+
+```bash
+mkdir data
+cp /path/to/your/企业文档.pdf data/
+python main.py
+```
+
+### 4. 量化评测（可选）
 
 ```bash
 python benchmark_final.py
 ```
 
-首次运行会自动通过 ModelScope 下载 bge-reranker-base 模型（约 1.1GB），请确保网络畅通。
+运行 15 篇文档 + 25 道分层测试题的完整评测，输出检索指标对比和端到端答案评分。
 
 ## 文件说明
 
 | 文件 | 说明 |
 |------|------|
+| `main.py` | **交互问答入口**：加载知识库 → 命令行交互问答 |
 | `rag_core.py` | RAG 核心模块：检索策略、重排序、查询改写、答案生成 |
-| `benchmark_final.py` | 量化对比实验：15篇文档、25道题、5种策略对比、端到端评测 |
+| `benchmark_final.py` | 量化对比实验：5种策略对比、端到端评测 |
 | `benchmark_full_report.json` | 实验结果数据 |
 
 ## 技术栈
