@@ -1,0 +1,12 @@
+jieba
+rank-bm25
+sentence-transformers
+langchain-text-splitters
+langchain-chroma
+langchain-huggingface
+langchain-core
+chromadb
+dashscope
+modelscope
+numpy
+pypdf
