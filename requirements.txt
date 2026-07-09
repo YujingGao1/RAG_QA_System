@@ -10,3 +10,5 @@ dashscope
 modelscope
 numpy
 pypdf
+pymysql
+langchain-openai
